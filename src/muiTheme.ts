@@ -1,4 +1,60 @@
 import { createMergedTheme } from '@timmons-group/shared-react-components';
+import React from 'react';
+
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    contained: React.CSSProperties;
+    clusterAdd: React.CSSProperties;
+    textLink: React.CSSProperties;
+    iconButton: React.CSSProperties;
+    inlineClusterRemove: React.CSSProperties;
+    gridActionEdit: React.CSSProperties;
+    gridActionView: React.CSSProperties;
+    gridActionDelete: React.CSSProperties;
+    user: React.CSSProperties;
+    panel: React.CSSProperties;
+    appbar: React.CSSProperties;
+    dashed: React.CSSProperties;
+    sectionHeader: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    contained: React.CSSProperties;
+    clusterAdd: React.CSSProperties;
+    textLink: React.CSSProperties;
+    iconButton: React.CSSProperties;
+    inlineClusterRemove: React.CSSProperties;
+    gridActionEdit: React.CSSProperties;
+    gridActionView: React.CSSProperties;
+    gridActionDelete: React.CSSProperties;
+    user: React.CSSProperties;
+    panel: React.CSSProperties;
+    appbar: React.CSSProperties;
+    dashed: React.CSSProperties;
+    sectionHeader: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    contained: true;
+    clusterAdd: true;
+    textLink: true;
+    iconButton: true;
+    inlineClusterRemove: true;
+    gridActionEdit: true;
+    gridActionView: true;
+    gridActionDelete: true;
+    user: true;
+    panel: true;
+    appbar: true;
+    dashed: true;
+    sectionHeader: true;
+  }
+}
+
 const stormBlue = '#2E5770';
 
 const teal = '#B0D4BF';

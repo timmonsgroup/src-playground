@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import { SubHeader } from '@timmons-group/shared-react-components';
 import { Button } from '@mui/material';
+import { FC } from 'react';
 
 type NavLink = {
   id: string;
@@ -15,32 +16,38 @@ const navLinks: NavLink[] = [
     id: 'about',
     title: 'About',
     href: '/about',
-  },
+  }
 ];
-const Layout: React.FC = () => {
+
+interface LayoutProps {
+  title?: string;
+  rightRender?: FC;
+}
+
+const DefaultRightRender: FC = () => {
+  return (
+    // create buttons from the navLinks array
+    navLinks.map(({href,id, title}, index) => {
+      return (
+        <Button
+          key={href}
+          href={href}
+          sx = {{ mr: index === navLinks.length - 1 ? 0 : 2 }}
+          data-src-header-button={`button-${id}`}
+        >
+          {title}
+        </Button>
+      );
+    })
+  )
+}
+
+const Layout: FC<LayoutProps> = ({title, rightRender}) => {
   return (
     <>
       <SubHeader data-src-form-subheader="genericForm"
-        title="Title Goes here"
-        rightRender={
-          () => {
-            return (
-              // create buttons from the navLinks array
-              navLinks.map((link, index) => {
-                return (
-                  <Button
-                    key={link.href}
-                    href={link.href}
-                    sx = {{ mr: index === navLinks.length - 1 ? 0 : 2 }}
-                    data-src-header-button={`button-${link.id}`}
-                  >
-                    {link.title}
-                  </Button>
-                );
-              })
-            )
-          }
-        }
+        title={title || 'Title Goes here'}
+        rightRender={rightRender || DefaultRightRender}
       />
       <Outlet />
     </>

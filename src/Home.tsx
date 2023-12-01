@@ -1,11 +1,11 @@
 // Third party libraries
-import React, { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 
 // MUI imports
 import {Typography} from '@mui/material';
 import {ContainerWithCard} from '@timmons-group/shared-react-components';
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   // Set the page title on mount
   useEffect(() => {
     document.title = 'Utah SLAM';
