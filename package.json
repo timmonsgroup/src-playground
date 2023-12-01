@@ -10,10 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@date-io/date-fns": "2.17.0",
+    "@timmons-group/shared-react-components": "^1.0.0-gamma.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "notistack": "2.0.8"
   },
   "devDependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.2",
+    "@mui/x-data-grid": "^5.17.26",
+    "@mui/x-date-pickers": "^5.0.20",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
@@ -22,6 +31,9 @@
     "eslint": "^8.53.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "react-router-dom": "^6.17.0",
+    "redux": "^4.2.1",
+    "sass": "^1.69.4",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
   }
