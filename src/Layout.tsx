@@ -46,8 +46,8 @@ const Layout: FC<LayoutProps> = ({title, rightRender}) => {
   return (
     <>
       <SubHeader data-src-form-subheader="genericForm"
-        title={title || 'Title Goes here'}
-        rightRender={rightRender || DefaultRightRender}
+        title={title ?? 'Title Goes here'}
+        rightRender={rightRender ?? DefaultRightRender}
       />
       <Outlet />
     </>

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
-import Home from './Home';
+import Home from '@pages/Home';
 
 
 // Create a generic about component

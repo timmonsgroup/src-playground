@@ -1,4 +1,4 @@
-import './App.css';
+import '@styles/app.scss';
 import { SnackbarProvider } from 'notistack';
 import { HashRouter as Router } from 'react-router-dom';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';

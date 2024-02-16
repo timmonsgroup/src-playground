@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import mkcert from 'vite-plugin-mkcert'
+import { checker } from 'vite-plugin-checker';
 
 // Pull the ports from the environment or default to 3000 / 3001
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
@@ -33,6 +34,31 @@ export default defineConfig({
       }
     }
   },
-  // Plugins to handle https (plus the cert) and react
-  plugins: [mkcert(), react()],
+  resolve: {
+    // alias the src directory for easy imports
+    // '../../../components/MyThing' becomes '@components/MyThing'
+    alias: [
+      { find: '@assets', replacement: '/src/assets' },
+      { find: '@components', replacement: '/src/components' },
+      { find: '@pages', replacement: '/src/pages' },
+      { find: '@app', replacement: '/src/app' },
+      { find: '@features', replacement: '/src/features' },
+      { find: '@hooks', replacement: '/src/hooks' },
+      { find: '@styles', replacement: '/src/styles' },
+      { find: '@helpers', replacement: '/src/helpers' },
+      { find: '@stores', replacement: '/src/stores' },
+      { find: '@services', replacement: '/src/services' },
+      { find: '@root', replacement: '/src' },
+    ],
+  },
+  plugins: [
+  // Plugins to handle https (plus the cert)
+    mkcert(),
+    // Need that react plugin
+    react(),
+    // Plugins to check typescript WHILE you develop
+    checker({
+      typescript: true
+    })
+  ],
 })

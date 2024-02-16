@@ -13,7 +13,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    // This is needed for ts to understand the aliases we set in vite.config.ts
+    "paths": {
+      "@*": [
+        "./src/*"
+      ]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
